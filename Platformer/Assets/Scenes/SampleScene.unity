@@ -23935,6 +23935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2147123110}
+  anim: {fileID: 2147123114}
 --- !u!95 &2147123114
 Animator:
   serializedVersion: 5
