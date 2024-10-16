@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     private Animator anim;
     private enum State{idle,running,jumping};
     private State state = State.idle;
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     {
         if(state == State.jumping)
         {
-
+            state = State.idle;
         }
         else if(Math.Abs(rb.velocity.x) > 2f)
         {
