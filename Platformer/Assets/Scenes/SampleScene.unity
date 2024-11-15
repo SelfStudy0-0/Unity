@@ -662,8 +662,8 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
-  jumpLength: 2
-  jumpHeight: 3
+  jumpLength: 3
+  jumpHeight: 4
 --- !u!1001 &481979729
 PrefabInstance:
   m_ObjectHideFlags: 0

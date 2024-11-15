@@ -15,21 +15,30 @@ public class EnemyFrog : MonoBehaviour
     private bool facingLeft = true;
     private Collider2D coll;
     private Rigidbody2D rb;
+    private Animator anim;
+
+    private enum State {idle, jumping, falling};
+    private State state = State.idle;
 
     private void Start()
     {
         fixedRotation = transform.rotation;
+
         coll = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        Move();
+        transform.rotation = fixedRotation;
+        //Move();
+        AnimationState()
+        anim.SetInteger("state", (int)state);
     }
     private void Move()
     {
-        transform.rotation = fixedRotation;
+        
         if (facingLeft == true)
         {
             //test if we are beyonded the leftCap
@@ -44,8 +53,9 @@ public class EnemyFrog : MonoBehaviour
                 //test if frog on the ground, if so then jump left
                 if (coll.IsTouchingLayers(ground))
                 {
-                    Debug.Log("jump left");
+                    //Debug.Log("jump left");
                     rb.velocity = new Vector2(-jumpLength, jumpHeight);
+                    state = State.jumping;
                 }
             }
             else
@@ -66,8 +76,9 @@ public class EnemyFrog : MonoBehaviour
                 //test if frog on the ground, if so then jump right
                 if (coll.IsTouchingLayers(ground))
                 {
-                    Debug.Log("jump right");
+                    //Debug.Log("jump right");
                     rb.velocity = new Vector2(jumpLength, jumpHeight);
+                    state = State.jumping;
                 }
             }
             else
@@ -76,9 +87,31 @@ public class EnemyFrog : MonoBehaviour
                 facingLeft = transform;
                 transform.localScale = new Vector2(1, 1);
                 facingLeft = true;
-                Debug.Log("facing left");
+                //Debug.Log("facing left");
             }
         }
     }
-
+    private void AnimationState()
+    {
+        if (state == State.jumping)
+        {
+            //state = State.idle;
+            if (rb.velocity.y < .1f)
+            {
+                //Debug.Log("fall");
+                state = State.falling;
+            }
+        }
+        else if (state == State.falling)
+        {
+            if (coll.IsTouchingLayers(ground))
+            {
+                state = State.idle;
+            }
+        }
+        else
+        {
+            state = State.idle;
+        }
+    }
 }
