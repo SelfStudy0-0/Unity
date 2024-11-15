@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cherries: 0
+  cherryText: {fileID: 0}
   ground:
     serializedVersion: 2
     m_Bits: 64
