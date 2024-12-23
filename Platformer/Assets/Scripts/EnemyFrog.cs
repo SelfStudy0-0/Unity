@@ -33,7 +33,7 @@ public class EnemyFrog : MonoBehaviour
     {
         transform.rotation = fixedRotation;
         //Move();
-        AnimationState()
+        AnimationState();
         anim.SetInteger("state", (int)state);
     }
     private void Move()
