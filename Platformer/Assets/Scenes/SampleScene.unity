@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &27069003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 27069004}
+  m_Layer: 6
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &27069004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27069003}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.72, y: -0.43, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2147123112}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &133263632
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +509,7 @@ GameObject:
   - component: {fileID: 456306317}
   - component: {fileID: 456306318}
   - component: {fileID: 456306319}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Frog
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -652,7 +683,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456306313}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 059fb319e3d3ef644816c76d29e020ea, type: 3}
   m_Name: 
@@ -1533,6 +1564,29 @@ MonoBehaviour:
     m_Extent: {x: 0.6662502, y: 0.74440634, z: 0.000000029802322}
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!114 &2147123119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729435415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbabeb591c581d4a8bca1f7e78af69d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2147123121}
+  attackPoint: {fileID: 27069004}
+  attackRange: 0.61
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!95 &2147123121 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2022524553762292222, guid: 720e067fee56ec8499ff30b12a59ad6d, type: 3}
+  m_PrefabInstance: {fileID: 1668906164288633127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &820023020512473140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12936,10 +12990,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2553590595040252757, guid: 720e067fee56ec8499ff30b12a59ad6d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 915485226}
+    - targetCorrespondingSourceObject: {fileID: 2553590595040252757, guid: 720e067fee56ec8499ff30b12a59ad6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 27069004}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8210320342672839757, guid: 720e067fee56ec8499ff30b12a59ad6d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2147123118}
+    - targetCorrespondingSourceObject: {fileID: 8210320342672839757, guid: 720e067fee56ec8499ff30b12a59ad6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2147123119}
   m_SourcePrefab: {fileID: 100100000, guid: 720e067fee56ec8499ff30b12a59ad6d, type: 3}
 --- !u!1001 &2218185213400197616
 PrefabInstance:

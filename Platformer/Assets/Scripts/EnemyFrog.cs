@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyFrog : MonoBehaviour
 {
+    public int maxHealth = 100;
+    int currentHealth;
     [SerializeField]private float leftCap;
     [SerializeField]private float rightCap;
     private Quaternion fixedRotation;
@@ -22,6 +24,7 @@ public class EnemyFrog : MonoBehaviour
 
     private void Start()
     {
+        currentHealth = maxHealth;
         fixedRotation = transform.rotation;
 
         coll = GetComponent<Collider2D>();
@@ -35,6 +38,21 @@ public class EnemyFrog : MonoBehaviour
         //Move();
         AnimationState();
         anim.SetInteger("state", (int)state);
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        //play hurt animation
+        if (currentHealth < 0)
+        {
+            Die();
+        }
+    }
+    public void Die()
+    {
+        Debug.Log("Enemy Died");
+        
     }
     private void Move()
     {
