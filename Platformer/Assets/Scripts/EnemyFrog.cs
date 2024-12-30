@@ -44,6 +44,8 @@ public class EnemyFrog : MonoBehaviour
     {
         currentHealth -= damage;
         //play hurt animation
+        anim.SetTrigger("Hurt");
+
         if (currentHealth < 0)
         {
             Die();
@@ -52,9 +54,14 @@ public class EnemyFrog : MonoBehaviour
     public void Die()
     {
         Debug.Log("Enemy Died");
-        
+        //play die animation
+        anim.SetBool("IsDead",true);
+        //disable enemy
+        coll.enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        this.enabled = false;
     }
-    private void Move()
+    /* private void Move()
     {
         
         if (facingLeft == true)
@@ -108,7 +115,7 @@ public class EnemyFrog : MonoBehaviour
                 //Debug.Log("facing left");
             }
         }
-    }
+    } */
     private void AnimationState()
     {
         if (state == State.jumping)
