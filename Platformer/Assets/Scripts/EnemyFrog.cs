@@ -61,7 +61,7 @@ public class EnemyFrog : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         this.enabled = false;
     }
-    /* private void Move()
+     private void Move()
     {
         
         if (facingLeft == true)
@@ -115,7 +115,7 @@ public class EnemyFrog : MonoBehaviour
                 //Debug.Log("facing left");
             }
         }
-    } */
+    } 
     private void AnimationState()
     {
         if (state == State.jumping)
